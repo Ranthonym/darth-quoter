@@ -1,0 +1,24 @@
+{
+  "name": "darth-quoter",
+  "version": "1.0.0",
+  "description": "A simple express app for learning and practicing CRUD operations on MongoDB database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ranthonym/darth-quoter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ranthonym/darth-quoter/issues"
+  },
+  "homepage": "https://github.com/Ranthonym/darth-quoter#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
