@@ -12,6 +12,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     console.log("Connected to Database");
     const db = client.db("darth-quoter");
+    const quotesCollection = db.collection("quotes");
     app.listen(3000, function () {
       console.log("listening on 3000");
     });
@@ -24,7 +25,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     app.post("/quotes", (req, res) => {
-      console.log(req.body);
+      quotesCollection
+        .insertOne(req.body)
+        .then((result) => {
+          res.redirect("/");
+        })
+        .catch((error) => console.error(error));
     });
   })
   .catch((error) => console.error(error));
