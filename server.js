@@ -20,8 +20,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(bodyParser.urlencoded({ extended: true }));
 
     app.get("/", (req, res) => {
-      // res.send("Hello World");
-      res.sendFile(`${__dirname}/index.html`);
+      db.collection("quotes")
+        .find()
+        .toArray()
+        .then((results) => {
+          console.log(results);
+        })
+        .catch((error) => console.error(error));
     });
 
     app.post("/quotes", (req, res) => {
